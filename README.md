@@ -153,4 +153,3 @@ moviebox-root/
 5. Open a Pull Request
 
 ---
-*This README was generated based on the project specifications.*

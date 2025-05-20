@@ -1,0 +1,70 @@
+<div class="admin-dashboard-wrapper">
+  <div class="container py-5">
+    <h2 class="text-center mb-4 dashboard-title">Admin Dashboard</h2>
+
+    <!-- نموذج البحث -->
+    <form (submit)="searchMovies(); $event.preventDefault()" class="row g-3 align-items-end mb-4">
+      <div class="col-md-5">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" [(ngModel)]="title" name="title" class="form-control" required />
+      </div>
+
+      <div class="col-md-3">
+        <label for="year" class="form-label">Year (optional):</label>
+        <input type="text" [(ngModel)]="year" name="year" class="form-control" />
+      </div>
+
+      <div class="col-md-4 d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+      </div>
+    </form>
+
+    <!-- رسائل -->
+    <div *ngIf="message" class="alert alert-success text-center">
+      {{ message }}
+    </div>
+    <div *ngIf="error" class="alert alert-danger text-center">
+      {{ error }}
+    </div>
+
+    <!-- نتائج البحث -->
+    <div *ngIf="searchResults.length">
+      <h4 class="mb-3">Search Results:</h4>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" *ngFor="let movie of searchResults">
+          <div class="card h-100 movie-card shadow-sm">
+            <img [src]="movie.Poster" class="card-img-top" alt="Poster" height="300" style="object-fit: cover;" />
+
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.Title }}</h5>
+              <p class="card-text">{{ movie.Year }} - {{ movie.Type }}</p>
+
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" (change)="toggleSelection(movie)" />
+                <label class="form-check-label">Select</label>
+              </div>
+
+              <button class="btn btn-success btn-sm me-2" (click)="addMovie(movie)">Add</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteMovie(movie.imdbID)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الأفلام المختارة -->
+    <div *ngIf="selectedMovies.length > 0" class="mt-5">
+      <h4>Selected Movies:</h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item" *ngFor="let movie of selectedMovies">
+          {{ movie.Title }} ({{ movie.Year }})
+        </li>
+      </ul>
+
+      <div class="d-flex gap-3">
+        <button class="btn btn-primary" (click)="addBatchMovies()">Add Batch</button>
+        <button class="btn btn-danger" (click)="deleteBatchMovies()">Delete Batch</button>
+      </div>
+    </div>
+  </div>
+</div>

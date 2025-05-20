@@ -1,0 +1,62 @@
+/* خلفية عامة */
+.admin-dashboard-wrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* العنوان */
+.dashboard-title {
+  font-size: 2.5rem;
+  color: #4A90E2;
+  font-weight: bold;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* تحريك العنوان */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* كروت الأفلام */
+.movie-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* أزرار */
+button.btn {
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+button.btn:hover {
+  transform: scale(1.05);
+}
+
+/* قائمة الأفلام المختارة */
+.list-group-item {
+  font-weight: 500;
+}

@@ -1,0 +1,168 @@
+/* General container */
+.user-container {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #f4f4f9;
+  min-height: 100vh;
+}
+
+/* Header */
+h2 {
+  font-size: 3em;
+  color: #007bff;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+  line-height: 1.2;  /* تحكم في المسافة بين الأسطر */
+}
+
+/* Search container */
+.search-container h3 {
+  font-size: 2.5em;
+  color: #ff1493;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+  line-height: 1.3;  /* تحكم في المسافة بين الأسطر */
+}
+
+.search-container form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-container label {
+  font-weight: bold;
+  color: #555;
+}
+
+.search-container input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+.search-container button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Toggle button */
+.btn-toggle {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.btn-toggle:hover {
+  background-color: #218838;
+}
+
+/* Main container layout */
+.main-container {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-list-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.movie-item {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.movie-info h4 {
+  font-size: 1.1em;
+  margin-top: 10px;
+  color: #333;
+}
+
+.movie-info p {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Movie details */
+.movie-detail-container {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.movie-detail-info {
+  flex: 1;
+}
+
+.movie-detail-poster img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h3 {
+  color: #333;
+}
+
+.error-message, .success-message {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}

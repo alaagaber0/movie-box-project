@@ -1,0 +1,93 @@
+/* خلفية الصفحة */
+.register-wrapper {
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+/* Centered container */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 40px; /* زيادة المسافة من الأعلى */
+}
+
+/* Welcome text styling */
+.welcome-text {
+  font-family: 'Roboto', sans-serif;
+  color: #4A90E2;
+  font-size: 4rem; /* تم تكبير الخط */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px; /* زيادة المسافة بين الجملة والصندوق */
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* صندوق التسجيل بتدرج لوني */
+.register-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير عند المرور بالماوس */
+.register-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* الحقول */
+input, select {
+  border-radius: 10px !important;
+  background-color: #fff;
+  color: #000;
+}
+
+/* تفاعل الحقول */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #ffc107;
+}
+
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched {
+  border-color: #28a745;
+}
+
+/* عنوان الصندوق */
+.register-card h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* الأزرار */
+button.btn {
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+/* تأثير عند الوقوف على الأزرار */
+button.btn:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}

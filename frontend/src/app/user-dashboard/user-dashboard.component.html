@@ -1,0 +1,61 @@
+<div class="user-container">
+  <h2>User Dashboard</h2>
+
+  <!-- Search Movies -->
+  <div class="search-container">
+    <h3>Search Movies</h3>
+    <form (submit)="searchMovies(); $event.preventDefault()">
+      <label>Title:</label>
+      <input type="text" [(ngModel)]="title" name="title" required />
+      <button type="submit">Search</button>
+    </form>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <!-- Toggle Movies Button -->
+  <button (click)="toggleMoviesView()" class="btn btn-toggle">
+    {{ showAllMovies ? 'Hide All Movies' : 'Show All Movies' }}
+  </button>
+
+  <!-- Main Container: Left for Movies List, Right for Movie Details -->
+  <div class="main-container">
+    
+    <!-- Left Side: Search Results or All Movies -->
+    <div *ngIf="(showAllMovies && movies.length) || (searchResults.length)" class="movie-list-container">
+      <h3>{{ searchResults.length ? 'Search Results:' : 'All Movies:' }}</h3>
+      <div class="movie-list">
+        <div *ngFor="let movie of (searchResults.length ? searchResults : movies)" class="movie-item" (click)="viewMovieDetails(movie.id)">
+          <img [src]="movie.poster" alt="poster" class="movie-poster" />
+          <div class="movie-info">
+            <h4>{{ movie.title }} ({{ movie.year }})</h4>
+            <p>{{ movie.type }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Movie Details -->
+    <div *ngIf="selectedMovie" class="movie-detail-container">
+      <div class="movie-detail-info">
+        <h3>{{ selectedMovie.title }} ({{ selectedMovie.year }})</h3>
+        <p><strong>IMDb ID:</strong> {{ selectedMovie.imdbID }}</p>
+        <p><strong>Type:</strong> {{ selectedMovie.type }}</p>
+        <h4>Rate this movie:</h4>
+        <input type="number" [(ngModel)]="rating" min="1" max="5" />
+        <button (click)="rateMovie(selectedMovie.id)">Submit Rating</button>
+
+        <div *ngIf="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <div class="movie-detail-poster">
+        <img [src]="selectedMovie.poster" alt="poster" />
+      </div>
+    </div>
+  </div>
+</div>
